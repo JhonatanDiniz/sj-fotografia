@@ -1,0 +1,39 @@
+{% extends 'fotografia/base.html' %}
+{% load static %}
+{% block content %}
+<div class="card mb-4">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Corretores</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Agência</th>
+                        <th>Telefone</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if obj %}
+                    {% for corretor in obj %}
+
+                    <tr>
+                        <td>{{ corretor.nome }}</td>
+                        <td>{{ corretor.get_name_agencia }}</td>
+                        <td>{{ corretor.telefone }}</td>
+                        <td>
+                            <a href=""><i class="fas fa-edit mr-1" style="color: #ffc107;"></i></a>
+                            <a href=""><i class="fas fa-trash mr-1" style="color: #dc3545;"></i></a>                            
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+                    {% else %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
